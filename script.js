@@ -17,15 +17,15 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!box) return; // para sa ibang pages na walang hero image
 
   var firstImg = box.querySelector("img");
-  var firstSrc = firstImg ? firstImg.getAttribute("src") : "images/p03.jpg";
+  var firstSrc = firstImg ? firstImg.getAttribute("src") : "p03.jpg";
 
   // Ilagay dito ang mga picture na gusto mong lumabas
   var files = [
     firstSrc,
-    "images/p10.jpg",
-    "images/p13.jpg",
-    "images/p16.jpg",
-    "images/p34.jpg"
+    "p10.jpg",
+"p13.jpg",
+"p16.jpg",
+"p34.jpg"
   ];
 
   box.innerHTML = "";
