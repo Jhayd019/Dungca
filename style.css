@@ -1060,3 +1060,126 @@ body {
         transform: none !important;
     }
 }
+/* ===== Dark mode toggle button: small round icon ===== */
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    font-size: 18px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+}
+
+.theme-toggle:hover {
+    background: var(--blush);
+}
+
+body,
+.site-header {
+    transition: background .3s, color .3s;
+}
+
+/* ===== Dark mode (applies only when <html data-theme="dark">) ===== */
+/* Swap the color variables so most of the site recolors automatically */
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --ink: #f3ebe7;
+    --muted: #b3a8a2;
+    --rose: #3a2f2c;
+    --blush: #2f2724;
+    --cream: #231e1c;
+    --line: #3d3431;
+    --white: #1a1614;
+}
+
+/* Places where a color was hard-coded, so they need their own override */
+[data-theme="dark"] body,
+[data-theme="dark"] .site-header,
+[data-theme="dark"] .trust-strip,
+[data-theme="dark"] .nav-links {
+    background: #1a1614;
+}
+
+[data-theme="dark"] .trust-strip {
+    color: var(--muted);
+}
+
+[data-theme="dark"] .hero-image {
+    background: var(--blush);
+}
+
+/* Buttons */
+[data-theme="dark"] .btn-dark {
+    background: #ead5d0;
+    color: #282321;
+}
+
+[data-theme="dark"] .btn-dark:hover {
+    background: #d9bfb7;
+}
+
+[data-theme="dark"] .btn-light {
+    background: #2f2724;
+    color: var(--ink);
+}
+
+[data-theme="dark"] .menu-toggle,
+[data-theme="dark"] .qty-control button {
+    color: var(--ink);
+}
+
+[data-theme="dark"] .add-button,
+[data-theme="dark"] .filter {
+    background: #1a1614;
+    color: var(--ink);
+}
+
+[data-theme="dark"] .add-button:hover,
+[data-theme="dark"] .filter.active,
+[data-theme="dark"] .filter:hover {
+    background: var(--ink);
+    color: #1a1614;
+}
+
+/* Forms */
+[data-theme="dark"] .order-form input,
+[data-theme="dark"] .order-form textarea,
+[data-theme="dark"] .order-form select,
+[data-theme="dark"] .confirmation textarea,
+[data-theme="dark"] .search-box input {
+    background: #1a1614;
+    color: var(--ink);
+}
+
+[data-theme="dark"] .order-form label {
+    color: #cfc3bd;
+}
+
+[data-theme="dark"] .error {
+    color: #ff8a80;
+}
+
+/* Cards, popup and other elements */
+[data-theme="dark"] .product-tag,
+[data-theme="dark"] .confirmation,
+[data-theme="dark"] .lightbox-inner {
+    background: #1a1614;
+    color: var(--ink);
+}
+
+[data-theme="dark"] .lightbox-close {
+    background: #2f2724;
+    color: var(--ink);
+}
+
+[data-theme="dark"] .quote-band {
+    color: #d9bfb7;
+}
