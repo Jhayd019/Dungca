@@ -53,3 +53,43 @@ document.addEventListener("DOMContentLoaded", function () {
     slides[current].classList.add("active");
   }, 1500);
 });
+/* ---- Dark mode: toggle button + remember the choice ---- */
+const THEME_KEY = "js-handmade-theme";
+
+// Read the saved theme (light is the default)
+function getSavedTheme() {
+  try { return localStorage.getItem(THEME_KEY) || "light"; }
+  catch { return "light"; }
+}
+
+// Set the theme on <html> and update the button icon
+function applyTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  const btn = document.querySelector(".theme-toggle");
+  if (btn) {
+    btn.textContent = theme === "dark" ? "☀" : "☾";
+    btn.setAttribute("aria-pressed", theme === "dark");
+  }
+}
+
+// Apply right away to reduce the flash of light mode
+applyTheme(getSavedTheme());
+
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.querySelector(".nav-links");
+  if (!nav) return;
+
+  // Create the button and add it to the menu on every page
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "theme-toggle";
+  btn.setAttribute("aria-label", "Toggle dark mode");
+  nav.appendChild(btn);
+  applyTheme(getSavedTheme());
+
+  btn.addEventListener("click", () => {
+    const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    applyTheme(next);
+    try { localStorage.setItem(THEME_KEY, next); } catch {}
+  });
+});
